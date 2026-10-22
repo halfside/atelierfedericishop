@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Atelier Federici</title>
   
-  <!-- Tipografías elegantes Google Fonts -->
+  <!-- Tipografías editoriales Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-color: #f7f6f2;
+      --bg-page: #f5f4f0;
       --card-bg: #ffffff;
-      --noir: #111111;
-      --charcoal: #2b2b2b;
-      --muted: #767676;
-      --border-subtle: rgba(0, 0, 0, 0.08);
-      --gold-accent: #c4a47c;
+      --noir: #121212;
+      --charcoal: #2d2d2d;
+      --muted: #737373;
+      --border-light: rgba(0, 0, 0, 0.07);
+      --gold-accent: #c5a880;
       --radius-squircle: 22px;
-      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
-      --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.09);
+      --shadow-subtle: 0 10px 28px rgba(0, 0, 0, 0.05);
+      --shadow-btn: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -32,7 +32,7 @@
     }
 
     body {
-      background-color: var(--bg-color);
+      background-color: var(--bg-page);
       color: var(--noir);
       font-family: 'Montserrat', sans-serif;
       min-height: 100vh;
@@ -42,157 +42,180 @@
       padding: 0;
     }
 
-    /* Contenedor central simulando pantalla móvil elegante */
+    /* Contenedor central tipo aplicación móvil */
     .app-viewport {
       width: 100%;
-      max-width: 440px;
+      max-width: 430px;
       min-height: 100vh;
       background: var(--card-bg);
       display: flex;
       flex-direction: column;
       position: relative;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
-      padding-bottom: 40px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.06);
+      padding-bottom: 35px;
     }
 
-    /* Cabecera / Banner editorial */
-    .hero-banner {
+    /* Cabecera con banner y bailarina original */
+    .hero-container {
       position: relative;
-      height: 210px;
-      background: linear-gradient(145deg, #161616 0%, #262626 100%);
+      height: 220px;
+      background: linear-gradient(135deg, #181818 0%, #292929 100%);
       overflow: hidden;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 22px;
     }
 
-    /* Textura gráfica de fondo */
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image: radial-gradient(#fff 1px, transparent 1px);
-      background-size: 16px 16px;
-    }
-
-    /* Arte de la bailarina integrado en el banner */
-    .hero-artwork {
-      position: absolute;
-      right: 18px;
-      bottom: -15px;
-      height: 220px;
-      opacity: 0.88;
-      filter: invert(1) brightness(1.2);
-      pointer-events: none;
-      transform: rotate(3deg);
-    }
-
-    .hero-badge-location {
-      position: absolute;
-      top: 18px;
-      left: 18px;
+    .hero-badge {
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #f5f5f5;
-      font-size: 0.65rem;
-      letter-spacing: 2px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fafafa;
+      font-size: 0.62rem;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
       font-weight: 500;
-    }
-
-    /* Avatar superpuesto */
-    .avatar-wrapper {
-      position: relative;
-      margin-top: -55px;
-      display: flex;
-      justify-content: center;
       z-index: 2;
     }
 
-    .avatar-circle {
-      width: 108px;
-      height: 108px;
-      border-radius: 50%;
-      background: #ffffff;
-      padding: 6px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(0, 0, 0, 0.04);
+    /* Imagen real de la bailarina situada a la derecha */
+    .hero-bailarina {
+      position: absolute;
+      right: 15px;
+      bottom: -10px;
+      height: 230px;
+      width: auto;
+      object-fit: contain;
+      filter: invert(1) brightness(1.15) contrast(1.1);
+      opacity: 0.92;
+      pointer-events: none;
+      z-index: 1;
+      transform: rotate(2deg);
     }
 
-    .avatar-inner {
+    /* Contenedor del logotipo real con proporciones horizontales nativas */
+    .brand-section {
+      text-align: center;
+      padding: 24px 24px 10px;
+      margin-top: -35px;
+      background: var(--card-bg);
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .logo-container {
       width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: #faf9f6;
+      max-width: 280px;
+      margin: 0 auto 12px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 10px;
-      overflow: hidden;
+      align-items: center;
     }
 
-    .avatar-inner img {
+    .brand-logo-img {
       width: 100%;
       height: auto;
+      max-height: 85px;
       object-fit: contain;
-    }
-
-    /* Encabezado editorial */
-    .profile-info {
-      text-align: center;
-      padding: 16px 24px 8px;
-    }
-
-    .brand-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.1rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      color: var(--noir);
-      text-transform: uppercase;
-      line-height: 1.1;
+      display: block;
     }
 
     .brand-subtitle {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 2.5px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 3.5px;
       text-transform: uppercase;
       color: var(--gold-accent);
-      margin-top: 6px;
+      margin-bottom: 8px;
     }
 
     .divider-gold {
-      width: 36px;
+      width: 32px;
       height: 2px;
       background: var(--gold-accent);
-      margin: 14px auto;
+      margin: 10px auto 14px;
       border-radius: 2px;
     }
 
     .brand-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.12rem;
+      font-size: 1.18rem;
       color: var(--charcoal);
       line-height: 1.4;
       max-width: 320px;
       margin: 0 auto;
     }
 
-    /* Cuadrícula de iconos interactivos (estilo iOS squircle) */
+    /* Botón destacado superior: Reseñas en Google */
+    .featured-action-area {
+      padding: 16px 22px 6px;
+    }
+
+    .btn-featured-google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: linear-gradient(135deg, #1b1b1b 0%, #000000 100%);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-featured-google:active {
+      transform: scale(0.97);
+    }
+
+    .btn-featured-google .star-icon {
+      color: #ffc107;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-featured-google .star-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .btn-featured-google .btn-text-group {
+      text-align: left;
+    }
+
+    .btn-featured-google .btn-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .btn-featured-google .btn-subtitle {
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.7);
+      display: block;
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Cuadrícula interactiva estilo Squircle iOS */
     .shortcuts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px 12px;
-      padding: 24px 22px 16px;
+      gap: 16px 10px;
+      padding: 20px 22px 14px;
     }
 
     .shortcut-card {
@@ -201,7 +224,7 @@
       align-items: center;
       text-decoration: none;
       color: var(--noir);
-      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.15s ease;
     }
 
     .shortcut-card:active {
@@ -209,26 +232,26 @@
     }
 
     .icon-box {
-      width: 68px;
-      height: 68px;
+      width: 66px;
+      height: 66px;
       border-radius: var(--radius-squircle);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 8px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-subtle);
       position: relative;
-      transition: all 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .shortcut-card:hover .icon-box {
-      box-shadow: var(--shadow-hover);
       transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
     }
 
     .icon-box svg {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
     }
 
     .shortcut-label {
@@ -239,20 +262,14 @@
       text-align: center;
     }
 
-    /* Colores e iconos de los botones */
-    .icon-google {
-      background: linear-gradient(135deg, #1f1f1f 0%, #000000 100%);
-      color: #f7d070;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
+    /* Tematización de iconos */
     .icon-instagram {
       background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       color: #ffffff;
     }
 
-    .icon-web {
-      background: linear-gradient(135deg, #2b2927 0%, #171514 100%);
+    .icon-boutique {
+      background: linear-gradient(135deg, #2a2826 0%, #151413 100%);
       color: #ffffff;
     }
 
@@ -262,18 +279,23 @@
     }
 
     .icon-phone {
-      background: linear-gradient(135deg, #1b3a57 0%, #0e2030 100%);
+      background: linear-gradient(135deg, #1b3854 0%, #0c2033 100%);
       color: #ffffff;
     }
 
     .icon-maps {
-      background: linear-gradient(135deg, #a63f38 0%, #7d2621 100%);
+      background: linear-gradient(135deg, #a83e36 0%, #7d2621 100%);
       color: #ffffff;
     }
 
-    /* Botón destacado Guardar Contacto */
+    .icon-email {
+      background: linear-gradient(135deg, #505050 0%, #303030 100%);
+      color: #ffffff;
+    }
+
+    /* Botón Guardar en Contactos vCard */
     .action-cta-area {
-      padding: 10px 22px 20px;
+      padding: 8px 22px 18px;
     }
 
     .btn-save-contact {
@@ -282,57 +304,57 @@
       justify-content: center;
       gap: 10px;
       width: 100%;
-      background: var(--noir);
-      color: #ffffff;
-      border: none;
-      padding: 15px 20px;
+      background: transparent;
+      color: var(--noir);
+      border: 1.5px solid var(--noir);
+      padding: 14px 20px;
       border-radius: 16px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 1.5px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      transition: background 0.2s ease, transform 0.1s ease;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
     }
 
     .btn-save-contact:active {
       transform: scale(0.97);
-      background: #252525;
+      background: var(--noir);
+      color: #ffffff;
     }
 
     .btn-save-contact svg {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       fill: none;
       stroke: currentColor;
       stroke-width: 2;
     }
 
-    /* Pie de página */
+    /* Pie de página con dirección física */
     .brand-footer {
       text-align: center;
-      padding: 14px 20px 0;
-      border-top: 1px solid var(--border-subtle);
+      padding: 16px 20px 0;
+      border-top: 1px solid var(--border-light);
       margin-top: auto;
     }
 
     .footer-address {
       font-size: 0.72rem;
       color: var(--muted);
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       line-height: 1.5;
     }
 
     .footer-signature {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--gold-accent);
       margin-top: 4px;
     }
 
-    /* Notificación de feedback */
+    /* Notificación flotante de confirmación */
     .toast-msg {
       position: fixed;
       bottom: 24px;
@@ -341,7 +363,7 @@
       background: rgba(17, 17, 17, 0.95);
       backdrop-filter: blur(8px);
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 30px;
       font-size: 0.75rem;
       letter-spacing: 0.5px;
@@ -362,78 +384,55 @@
 
   <main class="app-viewport">
     
-    <!-- Hero Banner con Bailarina minimalista -->
-    <header class="hero-banner">
-      <div class="hero-pattern"></div>
-      <span class="hero-badge-location">Altea · España</span>
+    <!-- Cabecera con la imagen real de la bailarina subida por el usuario -->
+    <header class="hero-container">
+      <!-- <span class="hero-badge">Altea · España</span> -->
       
-      <!-- Silueta de la bailarina minimalista vectorizada -->
-      <svg class="hero-artwork" viewBox="0 0 240 450" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Cabeza y cuello -->
-        <path d="M125 15 L145 28 L135 60 L120 40 Z" />
-        <path d="M135 60 L130 95" />
-        <!-- Brazo derecho -->
-        <path d="M145 70 L195 180 L225 240" stroke-width="4" />
-        <!-- Brazo izquierdo -->
-        <path d="M115 75 L65 145" stroke-width="4" />
-        <!-- Torso plisado estilo vestido alta costura -->
-        <path d="M110 95 L112 145" />
-        <path d="M122 80 L124 145" />
-        <path d="M134 85 L136 145" />
-        <path d="M146 95 L148 145" />
-        <!-- Cinturón fajín -->
-        <path d="M85 145 L155 148" stroke-width="6" />
-        <path d="M95 152 L150 155" stroke-width="5" />
-        <!-- Falda hojas/pétalos fluidos -->
-        <path d="M120 155 C70 180 30 250 35 280 C60 270 95 210 115 165" />
-        <path d="M120 160 C75 220 55 330 75 350 C100 320 125 240 126 170" />
-        <path d="M125 160 C110 230 115 320 135 340 C145 290 148 230 130 165" />
-        <path d="M128 160 C145 200 190 280 195 245 C185 205 155 175 130 160" />
-        <path d="M125 160 C150 170 205 210 200 230 C175 225 145 185 125 160" />
-        <!-- Pierna estilizada extendida -->
-        <path d="M122 170 L105 280 L125 365 L155 490" stroke-width="4.5" />
-      </svg>
+      <!-- Carga la imagen 'bailarina.png' del repositorio -->
+      <img 
+        src="bailarina.png" 
+        alt="Bailarina Atelier Federici" 
+        class="hero-bailarina"
+        onerror="this.style.opacity='0.15'; this.src='https://placehold.co/240x450/ffffff/000000?text=Bailarina';"
+      >
     </header>
 
-    <!-- Avatar central con el Logotipo Atelier Federici -->
-    <div class="avatar-wrapper">
-      <div class="avatar-circle">
-        <div class="avatar-inner">
-          <!-- Logo Atelier Federici Vectorizado en SVG -->
-          <svg viewBox="0 0 400 240" fill="none" style="width: 100%; height: auto;">
-            <!-- Tipografía ATELIER -->
-            <text x="35" y="150" font-family="'Montserrat', sans-serif" font-size="28" font-weight="600" letter-spacing="9" fill="#111">ATELIER</text>
-            <!-- Caligrafía Federici -->
-            <path d="M175 110 C140 105 95 65 140 32 C170 12 185 30 192 65 C198 100 185 190 180 230" stroke="#111" stroke-width="8" stroke-linecap="round" fill="none" />
-            <path d="M152 135 L225 130" stroke="#111" stroke-width="7" stroke-linecap="round" />
-            <text x="215" y="152" font-family="'Cormorant Garamond', cursive" font-size="62" font-style="italic" font-weight="600" fill="#111">ederici</text>
-          </svg>
-        </div>
+    <!-- Sección del Logotipo oficial con proporciones originales -->
+    <section class="brand-section">
+      <div class="logo-container">
+        <!-- Carga la imagen 'logo.png' del repositorio -->
+        <img 
+          src="logo-atelier.png" 
+          alt="Atelier Federici" 
+          class="brand-logo-img"
+          onerror="this.outerHTML='<h1 style=\'font-family:Montserrat;letter-spacing:6px;font-size:1.6rem;\'>ATELIER FEDERICI</h1>';"
+        >
       </div>
-    </div>
 
-    <!-- Título y Eslogan -->
-    <section class="profile-info">
-      <h1 class="brand-title">Atelier Federici</h1>
       <p class="brand-subtitle">Moda & Estilismo</p>
       <div class="divider-gold"></div>
-      <p class="brand-tagline">«Un espacio donde convergen distintos conceptos de moda»</p>
+      <p class="brand-tagline">«Un espacio donde convergen distintos conceptos de moda...»</p>
     </section>
 
-    <!-- Cuadrícula 2x3 de Accesos Directos (iOS Style) -->
-    <nav class="shortcuts-grid">
-      
-      <!-- 1. Reseña Google (Directa a 5 estrellas con Place ID) -->
-      <a href="https://search.google.com/local/writereview?placeid=ChIJT-Bvz3wBYg0Ro7lH4gXdeiw" target="_blank" rel="noopener noreferrer" class="shortcut-card">
-        <div class="icon-box icon-google">
-          <svg viewBox="0 0 24 24" fill="currentColor">
+    <!-- Botón Destacado: Reseña de 5 estrellas directa en Google -->
+    <div class="featured-action-area">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJT-Bvz3wBYg0Ro7lH4gXdeiw" target="_blank" rel="noopener noreferrer" class="btn-featured-google">
+        <span class="star-icon">
+          <svg viewBox="0 0 24 24">
             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
           </svg>
-        </div>
-        <span class="shortcut-label">Reseña</span>
+        </span>
+        <span class="btn-text-group">
+          <span class="btn-title">Valóranos en Google</span>
+          <span class="btn-subtitle">Tu reseña nos ayuda a seguir creando</span>
+        </span>
       </a>
+    </div>
 
-      <!-- 2. Instagram -->
+    <!-- Cuadrícula 2x3 de Accesos Directos (Estilo iOS) -->
+    <nav class="shortcuts-grid">
+      
+      <!-- 1. Instagram Oficial -->
       <a href="https://www.instagram.com/atelier.federici/" target="_blank" rel="noopener noreferrer" class="shortcut-card">
         <div class="icon-box icon-instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -445,9 +444,9 @@
         <span class="shortcut-label">Instagram</span>
       </a>
 
-      <!-- 3. Tienda Online -->
+      <!-- 2. Boutique / Tienda Online -->
       <a href="https://atelierfederici.com/" target="_blank" rel="noopener noreferrer" class="shortcut-card">
-        <div class="icon-box icon-web">
+        <div class="icon-box icon-boutique">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -457,8 +456,8 @@
         <span class="shortcut-label">Boutique</span>
       </a>
 
-      <!-- 4. WhatsApp Directo -->
-      <a href="https://wa.me/34604467780?text=Hola%20Atelier%20Federici,%20os%20contacto%20desde%20el%20llavero%20digital." target="_blank" rel="noopener noreferrer" class="shortcut-card">
+      <!-- 3. WhatsApp Directo -->
+      <a href="https://wa.me/34604467780?text=Hola%20Atelier%20Federici,%20quisiera%20solicitar%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="shortcut-card">
         <div class="icon-box icon-whatsapp">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/>
@@ -467,7 +466,7 @@
         <span class="shortcut-label">WhatsApp</span>
       </a>
 
-      <!-- 5. Llamada Telefónica -->
+      <!-- 4. Llamada Telefónica -->
       <a href="tel:+34604467780" class="shortcut-card">
         <div class="icon-box icon-phone">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -477,7 +476,7 @@
         <span class="shortcut-label">Llamar</span>
       </a>
 
-      <!-- 6. Ubicación / Cómo llegar -->
+      <!-- 5. Ubicación Google Maps -->
       <a href="https://maps.google.com/?q=Calle+Conde+de+Altea+35,+03590+Altea,+Alicante" target="_blank" rel="noopener noreferrer" class="shortcut-card">
         <div class="icon-box icon-maps">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -488,9 +487,20 @@
         <span class="shortcut-label">Cómo llegar</span>
       </a>
 
+      <!-- 6. Enviar Correo -->
+      <a href="mailto:info@atelierfederici.com" class="shortcut-card">
+        <div class="icon-box icon-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span class="shortcut-label">Email</span>
+      </a>
+
     </nav>
 
-    <!-- Botón de acción: Guardar en la agenda -->
+    <!-- Botón de acción: Guardar en Contactos (vCard) -->
     <div class="action-cta-area">
       <button class="btn-save-contact" id="saveContactBtn">
         <svg viewBox="0 0 24 24">
@@ -499,11 +509,11 @@
           <line x1="20" y1="8" x2="20" y2="14"></line>
           <line x1="23" y1="11" x2="17" y2="11"></line>
         </svg>
-        Guardar Contacto
+        Añadir a Contactos
       </button>
     </div>
 
-    <!-- Pie de página de la marca -->
+    <!-- Pie de página con dirección física -->
     <footer class="brand-footer">
       <p class="footer-address">Calle Conde de Altea, 35 · 03590 Altea (Alicante)</p>
       <p class="footer-signature">Atelier Federici Haute Couture</p>
@@ -511,18 +521,19 @@
 
   </main>
 
-  <div class="toast-msg" id="toastMsg">Contacto descargado</div>
+  <div class="toast-msg" id="toastMsg">Contacto guardado con éxito</div>
 
   <script>
-    // Generador automático de archivo vCard (.vcf) para añadir a contactos del teléfono
+    // Generación interactiva de vCard (.vcf) compatible con iOS y Android
     document.getElementById('saveContactBtn').addEventListener('click', function() {
       const vCardData = [
         'BEGIN:VCARD',
         'VERSION:3.0',
         'FN:Atelier Federici',
-        'ORG:Atelier Federici',
-        'TITLE:Moda & Estilismo',
-        'TEL;TYPE=CELL,VOICE:+34604467780',
+        'ORG:Atelier Federici;Alta Costura',
+        'TITLE:Moda & Novias',
+        'TEL;TYPE=CELL,VOICE,PREF:+34604467780',
+        'EMAIL;TYPE=INTERNET,WORK:info@atelierfederici.com',
         'ADR;TYPE=WORK:;;Calle Conde de Altea 35;Altea;Alicante;03590;España',
         'URL:https://atelierfederici.com',
         'NOTE:Usa el outfit, tú eres la ocasión',
@@ -539,7 +550,6 @@
       link.click();
       document.body.removeChild(link);
 
-      // Mostrar toast de confirmación
       const toast = document.getElementById('toastMsg');
       toast.classList.add('show');
       setTimeout(() => {
