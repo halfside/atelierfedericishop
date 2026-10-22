@@ -55,75 +55,48 @@
       padding-bottom: 35px;
     }
 
-    /* Cabecera con banner y bailarina original */
-    .hero-container {
-      position: relative;
-      height: 220px;
-      background: linear-gradient(135deg, #181818 0%, #292929 100%);
-      overflow: hidden;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 22px;
-    }
-
-    .hero-badge {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #fafafa;
-      font-size: 0.62rem;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-weight: 500;
-      z-index: 2;
-    }
-
-    /* Imagen real de la bailarina situada a la derecha */
-    .hero-bailarina {
-      position: absolute;
-      right: 15px;
-      bottom: -10px;
-      height: 230px;
-      width: auto;
-      object-fit: contain;
-      filter: invert(1) brightness(1.15) contrast(1.1);
-      opacity: 0.92;
-      pointer-events: none;
-      z-index: 1;
-      transform: rotate(2deg);
-    }
-
-    /* Contenedor del logotipo real con proporciones horizontales nativas */
+    /* Contenedor de marca: Logo a la izquierda y Bailarina a la derecha alineados */
     .brand-section {
       text-align: center;
-      padding: 14px 14px 10px;
-      margin-top: -35px;
+      padding: 24px 20px 10px;
       background: var(--card-bg);
-      border-top-left-radius: 28px;
-      border-top-right-radius: 28px;
       position: relative;
       z-index: 3;
     }
 
-    .logo-container {
-      width: 100%;
-      max-width: 380px;
-      margin: 0 auto 0px;
+    .brand-header-row {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .logo-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
       align-items: center;
     }
 
     .brand-logo-img {
       width: 100%;
+      max-width: 250px;
       height: auto;
-      max-height: 150px;
+      max-height: 95px;
       object-fit: contain;
+      object-position: left center;
       display: block;
+    }
+
+    .header-bailarina {
+      height: 95px;
+      width: auto;
+      max-width: 80px;
+      object-fit: contain;
+      object-position: right center;
+      display: block;
+      flex-shrink: 0;
     }
 
     .brand-subtitle {
@@ -384,28 +357,22 @@
 
   <main class="app-viewport">
     
-    <!-- Cabecera con la imagen real de la bailarina subida por el usuario -->
-    <header class="hero-container">
-      <!-- <span class="hero-badge">Altea · España</span> -->
-      
-      <!-- Carga la imagen 'bailarina.png' del repositorio -->
-      <img 
-        src="bailarina.png" 
-        alt="Bailarina Atelier Federici" 
-        class="hero-bailarina"
-        onerror="this.style.opacity='0.15'; this.src='https://placehold.co/240x450/ffffff/000000?text=Bailarina';"
-      >
-    </header>
-
-    <!-- Sección del Logotipo oficial con proporciones originales -->
+    <!-- Sección de Marca: Logotipo (izq) y Bailarina (dcha) a la misma altura -->
     <section class="brand-section">
-      <div class="logo-container">
-        <!-- Carga la imagen 'logo.png' del repositorio -->
+      <div class="brand-header-row">
+        <div class="logo-container">
+          <img 
+            src="logo-atelier.png" 
+            alt="Atelier Federici" 
+            class="brand-logo-img"
+            onerror="this.outerHTML='<h1 style=\'font-family:Montserrat;letter-spacing:6px;font-size:1.4rem;\'>ATELIER FEDERICI</h1>';"
+          >
+        </div>
         <img 
-          src="logo-atelier.png" 
-          alt="Atelier Federici" 
-          class="brand-logo-img"
-          onerror="this.outerHTML='<h1 style=\'font-family:Montserrat;letter-spacing:6px;font-size:1.6rem;\'>ATELIER FEDERICI</h1>';"
+          src="bailarina.png" 
+          alt="Bailarina Atelier Federici" 
+          class="header-bailarina"
+          onerror="this.style.display='none';"
         >
       </div>
 
